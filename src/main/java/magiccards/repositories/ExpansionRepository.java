@@ -4,6 +4,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import magiccards.entities.Expansion;
 
-public interface ExpansionRepository extends PagingAndSortingRepository<Expansion, Long> {
+public interface ExpansionRepository extends PagingAndSortingRepository<Expansion, Integer> {
 
 }

@@ -22,7 +22,7 @@ public class ExpansionController {
 	private ExpansionRepository repository;
 
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = "application/json")
-	public Expansion getExpansionById(@PathVariable("id") Long expansionId) {
+	public Expansion getExpansionById(@PathVariable("id") Integer expansionId) {
 		return this.repository.findOne(expansionId);
 	}
 
@@ -45,7 +45,7 @@ public class ExpansionController {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable("id") Long id) {
+	public void delete(@PathVariable("id") Integer id) {
 		this.repository.delete(id);
 	}
 }

@@ -19,31 +19,31 @@ import lombok.NoArgsConstructor;
 public class Expansion {
 
 	@Id
-	@Column(name = "ExpansionId")
-	private Long expansionId;
-	
-	@Column(name = "Name")
+	@Column(name = "expansionid")
+	private Integer expansionId;
+
+	@Column(name = "name")
 	private String name;
 
-	@Column(name = "PtBRName", columnDefinition = "text")
+	@Column(name = "ptbrName", columnDefinition = "text")
 	private String ptBRName;
 
-	@Column(name = "LinkName", columnDefinition = "text")
+	@Column(name = "linkname", columnDefinition = "text")
 	private String linkName;
 
-	@Column(name = "Code")
+	@Column(name = "code")
 	private String code;
-	
-	@Column(name = "LaunchDate")
+
+	@Column(name = "launchdate")
 	private Date launchDate;
-	
+
 	@ManyToOne
-	@JoinColumn(name = "ExpansionCategoryId")
+	@JoinColumn(name = "expansioncategoryid")
 	private ExpansionCategory expansionCategory;
-	
-	@Column(name = "IsPromo")
+
+	@Column(name = "ispromo")
 	private Boolean isPromo;
-	
-	@Column(name = "IsLegal")	
-	private Boolean isLegal; 
+
+	@Column(name = "islegal")
+	private Boolean isLegal;
 }

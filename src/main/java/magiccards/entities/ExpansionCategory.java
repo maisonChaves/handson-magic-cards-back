@@ -15,12 +15,12 @@ import lombok.NoArgsConstructor;
 public class ExpansionCategory {
 
 	@Id
-	@Column(name = "ExpansionCategoryId")
+	@Column(name = "expansioncategoryid")
 	private Long expansionCategoryId;
-	
-	@Column(name = "Name")
+
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name = "Type")	
+
+	@Column(name = "type")
 	private char type;
 }
