@@ -15,7 +15,7 @@ import magiccards.entities.Expansion;
 import magiccards.repositories.ExpansionRepository;
 
 @RestController
-@RequestMapping("expansion")
+@RequestMapping("expansions")
 public class ExpansionController {
 
 	@Autowired
