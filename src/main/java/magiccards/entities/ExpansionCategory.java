@@ -16,7 +16,7 @@ public class ExpansionCategory {
 
 	@Id
 	@Column(name = "expansioncategoryid")
-	private Long expansionCategoryId;
+	private Integer expansionCategoryId;
 
 	@Column(name = "name")
 	private String name;

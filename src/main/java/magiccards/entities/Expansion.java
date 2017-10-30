@@ -22,10 +22,10 @@ public class Expansion {
 	@Column(name = "expansionid")
 	private Integer expansionId;
 
-	@Column(name = "name")
+	@Column(name = "name", columnDefinition = "text")
 	private String name;
 
-	@Column(name = "ptbrName", columnDefinition = "text")
+	@Column(name = "ptbrname", columnDefinition = "text")
 	private String ptBRName;
 
 	@Column(name = "linkname", columnDefinition = "text")
