@@ -11,40 +11,39 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import magiccards.entities.Card;
-import magiccards.repositories.CardRepository;
+import magiccards.entities.MagicExpansion;
+import magiccards.repositories.MagicExpansionRepository;
 
 @RestController
-@RequestMapping("magicExpasion")
-public class MagicExpasion {
+@RequestMapping("magicexpansion")
+public class MagicExpasionController {
 
 	@Autowired
-	//FIXME alterar repositorio apos criacao.
-	private CardRepository magicExpasionRepository;
+	private MagicExpansionRepository magicExpansionRepository;
 	
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = "application/json")
-	public Card getMagicExpasionById(@PathVariable("id") String expansionID) {
-		return magicExpasionRepository.findOne(expansionID);
+	public MagicExpansion getMagicExpasionById(@PathVariable("id") Integer expansionID) {
+		return magicExpansionRepository.findOne(expansionID);
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
-	public Page<Card> getMagicExpasion(@RequestParam(value="page")int pageNumber, @RequestParam int size) {
+	public Page<MagicExpansion> getMagicExpasion(@RequestParam(value="page")int pageNumber, @RequestParam int size) {
 		Pageable page = new PageRequest(pageNumber, size);
-		return magicExpasionRepository.findAll(page);
+		return magicExpansionRepository.findAll(page);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, consumes = "application/json")
-	public void create(@RequestBody Card card) {
-		magicExpasionRepository.save(card);
+	public void create(@RequestBody MagicExpansion magicExpansion) {
+		magicExpansionRepository.save(magicExpansion);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
-	public void update(@RequestBody Card card) {
-		magicExpasionRepository.save(card);
+	public void update(@RequestBody MagicExpansion magicExpansion) {
+		magicExpansionRepository.save(magicExpansion);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable("id")String id) {
-		magicExpasionRepository.delete(id);
+	public void delete(@PathVariable("id")Integer id) {
+		magicExpansionRepository.delete(id);
 	}
 }
