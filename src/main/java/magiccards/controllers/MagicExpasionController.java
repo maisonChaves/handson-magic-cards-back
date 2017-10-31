@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("magicExpasion")
-public class MagicExpasion {
+@RequestMapping("magicexpansion")
+public class MagicExpasionController {
 
 	@Autowired
 	private MagicExpansionRepository magicExpasionRepository;
@@ -37,7 +37,7 @@ public class MagicExpasion {
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable("id") Integer id) {
+	public void delete(@PathVariable("id")Integer id) {
 		magicExpasionRepository.delete(id);
 	}
 }
