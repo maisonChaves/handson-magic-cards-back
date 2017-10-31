@@ -28,7 +28,11 @@ public class MagicExpasionController {
 
 	@RequestMapping(value = "", method = RequestMethod.POST, consumes = "application/json")
 	public void create(@RequestBody MagicExpansion magicExpansion) {
-		magicExpasionRepository.save(magicExpansion);
+		try {
+			magicExpasionRepository.save(magicExpansion);
+		} catch (Exception e ) {
+			e.printStackTrace();
+		}
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
