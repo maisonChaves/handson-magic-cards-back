@@ -1,50 +1,43 @@
 package magiccards.controllers;
 
+import magiccards.entities.MagicExpansion;
+import magiccards.repositories.MagicExpansionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import magiccards.entities.Card;
-import magiccards.repositories.CardRepository;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("magicExpasion")
 public class MagicExpasion {
 
 	@Autowired
-	//FIXME alterar repositorio apos criacao.
-	private CardRepository magicExpasionRepository;
+	private MagicExpansionRepository magicExpasionRepository;
 	
 	@RequestMapping(value = "{id}", method = RequestMethod.GET, produces = "application/json")
-	public Card getMagicExpasionById(@PathVariable("id") String expansionID) {
+	public MagicExpansion getMagicExpasionById(@PathVariable("id") Integer expansionID) {
 		return magicExpasionRepository.findOne(expansionID);
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = "application/json")
-	public Page<Card> getMagicExpasion(@RequestParam(value="page")int pageNumber, @RequestParam int size) {
+	public Page<MagicExpansion> getMagicExpasion(@RequestParam(value="page")int pageNumber, @RequestParam int size) {
 		Pageable page = new PageRequest(pageNumber, size);
 		return magicExpasionRepository.findAll(page);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST, consumes = "application/json")
-	public void create(@RequestBody Card card) {
-		magicExpasionRepository.save(card);
+	public void create(@RequestBody MagicExpansion magicExpansion) {
+		magicExpasionRepository.save(magicExpansion);
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT, consumes = "application/json")
-	public void update(@RequestBody Card card) {
-		magicExpasionRepository.save(card);
+	public void update(@RequestBody MagicExpansion magicExpansion) {
+		magicExpasionRepository.save(magicExpansion);
 	}
 
 	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-	public void delete(@PathVariable("id")String id) {
+	public void delete(@PathVariable("id") Integer id) {
 		magicExpasionRepository.delete(id);
 	}
 }

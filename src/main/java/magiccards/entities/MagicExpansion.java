@@ -16,31 +16,31 @@ import java.util.Date;
 public class MagicExpansion {
 
     @Id
-    @Column(name = "ExpansionId")
+    @Column(name = "expansionid", columnDefinition = "int")
     private Integer expansionId;
 
-    @Column(name = "Name", nullable = false)
+    @Column(name = "name", nullable = false, columnDefinition = "text")
     private String name;
 
-    @Column(name = "PtBRName")
+    @Column(name = "ptbrname", columnDefinition = "text")
     private String ptBrName;
 
-    @Column(name = "LinkName", nullable = false)
+    @Column(name = "linkname", nullable = false, columnDefinition = "text")
     private String linkName;
 
-    @Column(name = "Code", nullable = false)
+    @Column(name = "code", nullable = false, columnDefinition = "varchar")
     private String code;
 
-    @Column(name = "LaunchDate", nullable = false)
+    @Column(name = "launchdate", nullable = false, columnDefinition = "date")
     private Date launchDate;
 
-    @Column(name = "ExpansionCategoryId", nullable = false)
-    private Integer expansionCategoryId;
+    @Column(name = "expansioncategoryid", nullable = false, columnDefinition = "smallint")
+    private Short expansionCategoryId;
 
-    @Column(name = "IsPromo")
+    @Column(name = "ispromo", columnDefinition = "bit")
     private boolean promo;
 
-    @Column(name = "IsLegal")
+    @Column(name = "islegal", columnDefinition = "bit")
     private boolean legal;
 
 }
